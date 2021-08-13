@@ -1,0 +1,132 @@
+
+/* Common */
+.router_link {
+    text-decoration: none;
+}
+.router_link:hover {
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    font-weight: bold;
+}
+
+/* Light Theme */
+div.theme--light .nuxt-content strong {
+    background:linear-gradient(transparent 70%, #FFB74D 0%);
+}
+
+/* Dark Theme */
+div.theme--dark.v-expansion-panels .v-expansion-panel {
+    background-color: #2f2f2f;
+    color: #ececec;
+}
+div.theme--dark .nuxt-content strong {
+    background:linear-gradient(transparent 80%, #EF6C00 0%);
+}
+
+/* Prism Common */
+li.post-depth-2 {
+    margin: 20px;
+}
+li.post-depth-3 {
+    margin: 20px 20px 20px 40px;
+}
+div.nuxt-content-highlight {
+    margin: -1em 0 2em 0;
+}
+div.nuxt-content-highlight span{
+    font-size: 14px;
+    font-family:"Fira Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+}
+
+/* Prism Light Theme */
+div.theme--light h1.post_title {
+    font-weight: bold;
+    font-size: 28px;
+    padding: 10px;
+    border-left: medium solid #26A69A;
+    border-left-width: 10px;
+}
+div.theme--light .nuxt-content h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin: 50px 0;
+    padding: 10px;
+    border-top: medium solid #26A69A;
+    border-top-width: 3px;
+    border-bottom: medium solid #26A69A;
+    border-bottom-width: 3px;
+}
+div.theme--light .nuxt-content h3 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 25px 0;
+    padding: 5px;
+    text-decoration: underline;
+    text-decoration-color: #26A69A;
+    text-decoration-thickness: 3px;
+}
+div.theme--light pre[class*="language-"] {
+    padding-top: 3em;
+}
+div.theme--light .nuxt-content ul li {
+    margin: 10px 0;
+}
+div.theme--light div.nuxt-content-highlight span.filename {
+    display: inline-block;
+    position: relative;
+    top: 2em;
+    left: 1em;
+    color: #000;
+    background-color: #e0e0e0;
+    border-radius: 0 0 4px 4px;
+    padding: 0 20px;
+}
+
+/* Prism Dark Theme */
+div.theme--dark h1.post_title {
+    font-weight: bold;
+    font-size: 28px;
+    padding: 10px;
+    border-left: medium solid #26A69A;
+    border-left-width: 10px;
+}
+div.theme--dark .nuxt-content h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin: 50px 0;
+    padding: 10px;
+    border-top: medium solid #26A69A;
+    border-top-width: 3px;
+    border-bottom: medium solid #26A69A;
+    border-bottom-width: 3px;
+}
+div.theme--dark .nuxt-content h3 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 25px 0;
+    padding: 5px;
+    text-decoration: underline;
+    text-decoration-color: #26A69A;
+    text-decoration-thickness: 3px;
+}
+div.theme--dark pre[class*="language-"] {
+    background: #2F2F2F;
+    padding-top: 2em;
+}
+div.theme--dark.v-application code {
+    background-color: #2F2F2F;
+}
+div.theme--dark div.nuxt-content-highlight span.filename {
+    display: inline-block;
+    position: relative;
+    top: 2em;
+    left: 1em;
+    color: #fff;
+    background-color: #616161;
+    border-radius: 0 0 4px 4px;
+    padding: 0 20px;
+}

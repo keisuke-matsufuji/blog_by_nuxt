@@ -17,7 +17,12 @@
         <div
           class="ma-1"
         >
-          {{ tag }}
+          <router-link
+            :to="`/tags/${tag}`"
+            :class="`router_link grey--text ${textSubClass}`"
+          >
+            {{ tag }}
+          </router-link>
         </div>
       </v-chip>
     </span>
@@ -34,13 +39,14 @@ export default defineComponent({
       type: [],
     },
   },
-  setup(props) {
+  setup() {
     const getDarkTheme = inject<() => boolean>('getDarkTheme')
 
-    const { textColor } = useTheme(getDarkTheme)
+    const { textColor, textSubClass } = useTheme(getDarkTheme)
 
     return {
       textColor,
+      textSubClass,
     }
   },
 })

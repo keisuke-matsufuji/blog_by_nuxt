@@ -1,3 +1,4 @@
+
 <template>
   <article>
     <BlogHeader />
@@ -14,27 +15,6 @@
               router
               exact
             >
-              <!-- <v-card-title
-                style="height: 4em;"
-              >
-                <v-avatar
-                  height="100"
-                  width="100"
-                  color="secondary"
-                  style="position: relative; top: .5em; left: 10em;"
-                >
-                  <v-img
-                    :src="require(`@/assets/images/icons/${post.top_image}`)"
-                    contain
-                    style="align-items: end;"
-                  ></v-img>
-                </v-avatar>
-              </v-card-title>
-              <v-card-text
-                style="background-color: #fff; height: 23em; width: 20em;"
-              >
-                てすと１
-              </v-card-text> -->
               <v-img
                 height="25em"
                 :src="require(`@/static/covers/${post.cover_image}.jpg`)"
@@ -56,11 +36,6 @@
                 <div>
                   <p class="my-7">{{ post.description }}</p>
                 </div>
-                <!-- <v-btn
-                  @click="toggleMenu()"
-                >
-                  ぼたん
-                </v-btn> -->
               </v-card-text>
             </v-card>
           </v-hover>
@@ -72,21 +47,11 @@
 
 <script lang="ts">
 import { 
-  computed,
   defineComponent,
   inject,
-  onMounted,
-  provide,
-  reactive,
-  ref,
-  Ref,
-  toRefs,
   useAsync,
   useContext,
-  useStatic,
-  watch,
 } from '@nuxtjs/composition-api'
-import useLayout from '@/composables/use-layout'
 import useTheme from '@/composables/use-theme'
 import TagItem from '@/components/TagItem.vue'
 import Post from '@/types/post'
@@ -101,8 +66,6 @@ export default defineComponent({
     /**
      * data
      */
-    // const hover
-
     const { app, params } = useContext()
 
     // 関数でinjectした場合injectした側は常にgetterとして扱うことができ、
@@ -114,26 +77,14 @@ export default defineComponent({
 
     const postItem = useAsync<Post[]>(async () => {
       return await app.$content('posts')
+      .where({ tags: { $contains: params.value.slug }}) // tags/xxxからタグが一致する記事を条件に取得
       .sortBy('created_at', 'desc')
       .fetch()
     })
 
-    /**
-     * computed
-     */
-    // const tagList = computed(() => {
-    //   return post.value.tags.split(',')
-    // })
-
-    const toggleMenu = () => {
-      console.log('postItem', postItem)
-    }
-
     return {
       isMobileSize,
-      // mobileSize,
       postItem,
-      toggleMenu,
       textColor,
     }
   },

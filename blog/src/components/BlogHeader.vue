@@ -1,30 +1,60 @@
 <template>
   <div>
-    <v-app-bar height="30" class="mb-2" :color="baseColor">
-      <v-toolbar-title>
-        徒然なるままに（仮）
-      </v-toolbar-title>
-      <div
-        v-if="!isMobileSize()"
-      >
-        <span
-          v-for="(item, i) in headerItems"
-          :key="i"
-        >
-          <router-link
-            :to="item.path"
-            :class="`router_link grey--text ${textSubClass}`"
-          >
-            {{ item.content }}
-          </router-link>
-          <span
-            v-if="i < headerItems.length-1"
-            :class="`grey--text ${textSubClass}`"
-          >
-            |
-          </span>
-        </span>
-      </div>
+    <v-app-bar height="100" class="ma-2" :color="baseColor" elevation="0">
+    <!-- <v-app-bar height="100" class="ma-2" elevation="0"> -->
+      <v-row v-if="!isMobileSize()" class="ma-5">
+        <v-col cols="3" />
+        <v-col cols="6">
+          <div class="d-block blog-header" width="50px">
+            <v-toolbar-title 
+              class="font-weight-bold blog-header-title"
+            >
+              matsu tech
+            </v-toolbar-title>
+            <div 
+              class="blog-header-subtitle"
+            >
+              ソフトウェアエンジニア matsu のブログサイト
+            </div>
+            <div
+              class="mx-10 pt-5"
+              style="text-align:center;"
+            >
+              <span
+                v-for="(item, i) in headerItems"
+                :key="i"
+                class="mx-0"
+              >
+                <router-link
+                  :to="item.path"
+                  :class="`router_link grey--text ${textSubClass}`"
+                >
+                  {{ item.content }}
+                </router-link>
+                <span
+                  v-if="i < headerItems.length-1"
+                  :class="`mx-1 grey--text ${textSubClass}`"
+                >
+                  |
+                </span>
+                <!-- <router-link
+                  :to="item.path"
+                  class="router_link grey--text"
+                >
+                  {{ item.content }}
+                </router-link>
+                <span
+                  v-if="i < headerItems.length-1"
+                  class="mx-1 grey--text"
+                >
+                  |
+                </span> -->
+              </span>
+            </div>
+          </div>
+        </v-col>
+        <v-col cols="3" />
+      </v-row>
       <v-spacer v-if="isMobileSize()"/>
       <div
         v-if="isMobileSize()"
@@ -59,7 +89,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, ref } from '@nuxtjs/composition-api'
+import { defineComponent, inject, ref } from '@nuxtjs/composition-api'
 import useTheme from '@/composables/use-theme'
 
 interface HeaderItem {
@@ -77,18 +107,22 @@ export default defineComponent({
     const { baseColor, textSubClass } = useTheme(getDarkTheme)
 
     const headerItems = <HeaderItem[]>[
+      // {
+      //   path: '/',
+      //   content: 'HOME',
+      // },
       {
-        path: '/',
-        content: 'HOME',
-      },
-      {
-        path: '/post',
+        path: '/posts',
         content: '記事一覧',
       },
       {
         path: '/tags/JavaScript',
         content: 'JavaScript',
-      }
+      },
+      {
+        path: '/tags/Nuxtjs',
+        content: 'Nuxtjs',
+      },
     ]
 
     const menuDrawer = ref(false)
@@ -111,3 +145,24 @@ export default defineComponent({
   },
 })
 </script>
+<style scopded>
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+.blog-header {
+  text-align: center;
+}
+.blog-header-title {
+  width: min-content;
+  margin: auto;
+  font-size: 28px; 
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+.blog-header-subtitle {
+  font-size: 12px; 
+}
+div.theme--light .blog-header-title {
+  background: linear-gradient(transparent 80%, #26A69A 0%);
+}
+div.theme--dark .blog-header-title {
+  background: linear-gradient(transparent 85%, #009688 0%);
+}
+</style>

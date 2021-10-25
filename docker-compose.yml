@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nuxt-app:
+  nuxt:
     # Dockerfileの場所
     build: .
     working_dir: /src
@@ -11,5 +11,5 @@ services:
     # コンテナ内部の3000を外部から5000でアクセスする
     ports:
       - 5000:3000
-    # コンテナ起動後、StatuがExitにならないようttyの設定
+    # コンテナ起動後、StatusがExitにならないようttyの設定
     tty: true

@@ -85,8 +85,8 @@ export default {
       themes: {
         dark: {
           // primary: colors.teal.darken2,
-          // primary: colors.teal,
-          primary: colors.teal.lighten1,
+          primary: colors.teal,
+          // primary: colors.teal.lighten1,
           accent: colors.orange.darken3,
           secondary: colors.grey.darken2,
           // primary: colors.blue.darken2,
@@ -99,8 +99,8 @@ export default {
           // tertiary: colors.white,
         },
         light: {
-          // primary: colors.teal.lighten2,
-          primary: colors.teal.darken1,
+          primary: colors.teal.lighten1,
+          // primary: colors.teal.darken1,
           accent: colors.orange.lighten2,
           secondary: colors.grey.lighten2,
           // primary: colors.blue.lighten2,

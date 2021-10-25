@@ -93,7 +93,8 @@
       </v-btn>
       <v-toolbar-title 
         v-text="title"
-        class="text-h5 font-weight-bold"
+        class=""
+        style="font-size: 20px;"
       />
       <v-spacer />
       <v-switch
@@ -262,6 +263,9 @@ export default defineComponent({
 </script>
 <style>
 /* Dark Theme */
+.theme--dark.v-navigation-drawer {
+  background-color: #161616;
+}
 .theme--dark.v-card {
   color: #ececec;
 }

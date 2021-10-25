@@ -67,6 +67,7 @@ export default function useLayout() {
     // console.log('vuetify', app.vuetify.framework.theme.dark)
 
     return 'Keisuke Matufuji'
+    // return ''
   })
 
   /**

@@ -122,8 +122,6 @@ export default defineComponent({
       //   return value.tags.indexOf('Laravel') != -1
       // })
       // console.log('ap2', ap2)
-
-
       return await app.$content('posts')
       .sortBy('created_at', 'desc')
       .fetch()

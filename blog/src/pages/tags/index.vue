@@ -85,7 +85,7 @@ export default defineComponent({
 
       return await app.$content('posts')
       // .where({ tags: { $contains: params.value.slug }})
-      .where({ tags: { $contains: params.value.slug }})
+      .where({ tags: { $eq: params.value.slug }})
       .sortBy('created_at', 'desc')
       .fetch()
     })

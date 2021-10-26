@@ -83,12 +83,27 @@ export default defineComponent({
     const postItem = useAsync<Post[]>(async () => {
       console.log('params.value', params.value)
 
-      return await app.$content('posts')
+      // return await app.$content('posts')
       // .where({ tags: { $contains: params.value.slug }})
-      .where({ tags: { $eq: params.value.slug }})
+      // .sortBy('created_at', 'desc')
+      // .fetch()
+
+      let post = await app.$content('posts')
       .sortBy('created_at', 'desc')
       .fetch()
+
+      return post.filter((value) => {
+        // return value.tags.indexOf(params.value.slug)
+        return value.tags.indexOf(params.value.slug) != -1
+      })
     })
+
+    let ap = app.$content('posts')
+    .sortBy('created_at', 'desc')
+    .fetch()
+    console.log('ap', ap)
+
+    console.log('postItem', postItem)
 
     /**
      * computed

@@ -113,6 +113,17 @@ export default defineComponent({
     const { textColor } = useTheme(getDarkTheme)
 
     const postItem = useAsync<Post[]>(async () => {
+      // let ap = await app.$content('posts')
+      // .sortBy('created_at', 'desc')
+      // .fetch()
+      // console.log('ap', ap)
+      // let ap2 = ap.filter((value) => {
+      //   // return value.tags.indexOf(params.value.slug)
+      //   return value.tags.indexOf('Laravel') != -1
+      // })
+      // console.log('ap2', ap2)
+
+
       return await app.$content('posts')
       .sortBy('created_at', 'desc')
       .fetch()

@@ -10,10 +10,9 @@
             <v-toolbar-title 
               class="font-weight-bold blog-header-title"
             >
-              <!-- matsu tech -->
               <router-link
                 to="/posts"
-                class="router_link black--text"
+                :class="`router_link grey--text ${textSubClass}`"
               >
                 matsu tech
               </router-link>

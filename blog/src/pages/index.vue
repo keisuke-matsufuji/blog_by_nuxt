@@ -36,12 +36,20 @@
       <v-layout justify-center>
         <div class="ma-3">
           <a 
-            href="https://github.com/keisuke-matsufuji"
+            href="https://github.com/keisuke-matsufuji/my_portfolio"
             target="_blank"
             rel="noopener"
           >
             <v-img
+              v-if="!getDarkTheme()"
               :src="require(`@/assets/images/icons/github-icon.svg`)"
+              height="40px"
+              width="40px"
+              contain
+            ></v-img>
+            <v-img
+              v-if="getDarkTheme()"
+              :src="require(`@/assets/images/icons/github-white.png`)"
               height="40px"
               width="40px"
               contain
@@ -54,46 +62,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "@nuxtjs/composition-api"
+import { defineComponent, inject, reactive, ref } from "@nuxtjs/composition-api"
+import useTheme from '@/composables/use-theme'
 
 export default defineComponent({
   head: {
     title: "Sample"
   },
   setup() {
-    /*
-      data() {
-        return {
-          text: ""
-        }
-      }
-    */
-    const info = reactive({
-      text: ""
-    })
-    const message = ref('Hello, World!')
+    const getDarkTheme = inject<() => boolean>('getDarkTheme')
 
-    /*
-      created() {
-        this.text = "まだ押されていません"
-      }
-    */
-   
-    info.text = "まだ押されていません"
-
-    /*
-      methods: {
-        onClicked() {
-          this.text = "押されたよ！"
-        }
-      }
-    */
-    const onClicked = () => {
-      info.text = "押されたよ！"
-      message.value = 'Hello, Nuxt!'
-    }
-
-    return { info, message, onClicked }
+    return { getDarkTheme }
   }
 })
 </script>

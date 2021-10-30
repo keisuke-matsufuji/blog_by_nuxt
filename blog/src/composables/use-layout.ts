@@ -16,7 +16,6 @@ export default function useLayout() {
    */
   const baseColor = computed(() => {
     let size = app.vuetify.framework.breakpoint.name
-    // return darkTheme.value ? 'black' : 'white'
     return darkTheme.value ? '#121212' : '#FFFFFF'
   })
 

@@ -1,28 +1,12 @@
 import { 
   computed, 
   watch,
-  Ref,
   ref,
   useContext,
   InjectionKey 
 } from '@nuxtjs/composition-api'
 import  MenuItem  from '@/types/menu-item'
 
-/** 反対色を返す関数 */
-// const getOpposite = (color: string) => {
-//   return (
-//     '#' +
-//     color
-//       .match(/^#(.{2})(.{2})(.{2})$/)!
-//       .slice(1, 4)
-//       .map((v) => 255 - parseInt(v, 16))
-//       .map((v) => ('0' + v.toString(16)).slice(-2))
-//       .join('')
-//   )
-// }
-
-// export default function useLayout(items: Ref<MenuItem[]>, miniVariant: Ref<boolean>) {
-// export default function useLayout(items: Ref<MenuItem[]>) {
 export default function useLayout() {
   const { app, route } = useContext()
   const darkTheme = ref(false)
@@ -51,8 +35,8 @@ export default function useLayout() {
   })
 
   const title = computed(() => {
-    const currentPath = route.value.fullPath
-    // 現在のpathから表示するタイトルを決定する
+    // const currentPath = route.value.fullPath
+    // // 現在のpathから表示するタイトルを決定する
     // const array: Ref<MenuItem[]> = ref(items) // パラメータ(items)を宣言しないとエラーが表示される
     // let result = ''
     // array.value.some(item => {
@@ -66,8 +50,8 @@ export default function useLayout() {
     // console.log('vuetify', app.vuetify.framework.theme)
     // console.log('vuetify', app.vuetify.framework.theme.dark)
 
-    return 'Keisuke Matufuji'
-    // return ''
+    // return 'Keisuke Matufuji'
+    return 'Matsu'
   })
 
   /**

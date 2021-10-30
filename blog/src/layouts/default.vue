@@ -19,7 +19,10 @@
       >
         <v-list-item class="px-2">
           <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
+            <v-img
+              :src="require(`@/assets/images/icons/matsu.jpg`)"
+              alt="Matsu"
+            ></v-img>
           </v-list-item-avatar>
           <!-- <v-list-item-title
             v-if="!miniVariant"
@@ -28,7 +31,7 @@
           <v-list-item-title
             class="text-h6 font-weight-bold"
           >
-            Keisuke Matsufuji
+            Matsu
           </v-list-item-title>
         </v-list-item>
 
@@ -37,12 +40,12 @@
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              福岡市在住
+              Webエンジニア三年生
             </v-list-item-subtitle>
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              コードを書いています
+              PHP / TypeScript / Vue.js / Python
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -175,18 +178,8 @@ export default defineComponent({
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Home',
           to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Example',
-          to: '/example',
         },
         {
           icon: 'mdi-note-outline',

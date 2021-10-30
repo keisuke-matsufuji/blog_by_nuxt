@@ -1,15 +1,21 @@
 <template>
-  <div>
+  <v-row>
+    <v-col>
     <v-app-bar height="100" class="ma-2" :color="baseColor" elevation="0">
     <!-- <v-app-bar height="100" class="ma-2" elevation="0"> -->
       <v-row v-if="!isMobileSize()" class="ma-5">
-        <v-col cols="3" />
-        <v-col cols="6">
+        <v-col cols="2" />
+        <v-col cols="8">
           <div class="d-block blog-header" width="50px">
             <v-toolbar-title 
               class="font-weight-bold blog-header-title"
             >
-              matsu tech
+              <router-link
+                to="/posts"
+                :class="`router_link grey--text ${textSubClass}`"
+              >
+                matsu tech
+              </router-link>
             </v-toolbar-title>
             <div 
               class="blog-header-subtitle"
@@ -37,23 +43,11 @@
                 >
                   |
                 </span>
-                <!-- <router-link
-                  :to="item.path"
-                  class="router_link grey--text"
-                >
-                  {{ item.content }}
-                </router-link>
-                <span
-                  v-if="i < headerItems.length-1"
-                  class="mx-1 grey--text"
-                >
-                  |
-                </span> -->
               </span>
             </div>
           </div>
         </v-col>
-        <v-col cols="3" />
+        <v-col cols="2" />
       </v-row>
       <v-spacer v-if="isMobileSize()"/>
       <div
@@ -85,7 +79,8 @@
         </v-list-item>
       </v-list>
     </v-card>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -107,21 +102,21 @@ export default defineComponent({
     const { baseColor, textSubClass } = useTheme(getDarkTheme)
 
     const headerItems = <HeaderItem[]>[
-      // {
-      //   path: '/',
-      //   content: 'HOME',
-      // },
-      {
-        path: '/posts',
-        content: '記事一覧',
-      },
       {
         path: '/tags/JavaScript',
         content: 'JavaScript',
       },
       {
-        path: '/tags/Nuxtjs',
-        content: 'Nuxtjs',
+        path: '/tags/Vue.js',
+        content: 'Vue.js',
+      },
+      {
+        path: '/tags/PHP',
+        content: 'PHP',
+      },
+      {
+        path: '/tags/Laravel',
+        content: 'Laravel',
       },
     ]
 

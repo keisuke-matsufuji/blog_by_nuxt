@@ -1,134 +1,87 @@
-<!-- <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
-</template>-->
-
 <template>
   <div class="container">
-    <p>{{ info.text }}</p>
-    <p>{{ message }}</p>
-    <button @click="onClicked">ボタン</button>
-    <v-card class="logo py-4 d-flex justify-center">
-      <NuxtLogo />
-      <VuetifyLogo />
+    <v-card style="width: 100%; height: 100%">
+      <v-layout justify-center>
+        <div>
+          <v-avatar size="200" class="ma-3">
+            <v-img
+              :src="require(`@/assets/images/icons/matsu.jpg`)"
+              alt="Matsu"
+            ></v-img>
+          </v-avatar>
+        </div>
+      </v-layout>
+      <v-layout justify-center>
+        <div
+          class="font-weight-bold blog-header-title ma-3"
+        >
+          Matsu
+        </div>
+      </v-layout>
+      <v-layout justify-center>
+        <div class="ma-1">
+          Webエンジニア三年生
+        </div>
+      </v-layout>
+      <v-layout justify-center>
+        <div class="ma-1">
+          Backend / Frontendどちらも好きです
+        </div>
+      </v-layout>
+      <v-layout justify-center>
+        <div class="ma-3">
+          PHP / TypeScript / Vue.js / Python
+        </div>
+      </v-layout>
+      <v-layout justify-center>
+        <div class="ma-3">
+          <a 
+            href="https://github.com/keisuke-matsufuji/my_portfolio"
+            target="_blank"
+            rel="noopener"
+          >
+            <v-img
+              v-if="!getDarkTheme()"
+              :src="require(`@/assets/images/icons/github-icon.svg`)"
+              height="40px"
+              width="40px"
+              contain
+            ></v-img>
+            <v-img
+              v-if="getDarkTheme()"
+              :src="require(`@/assets/images/icons/github-white.png`)"
+              height="40px"
+              width="40px"
+              contain
+            ></v-img>
+          </a>
+        </div>
+      </v-layout>
     </v-card>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "@nuxtjs/composition-api"
+import { defineComponent, inject, reactive, ref } from "@nuxtjs/composition-api"
+import useTheme from '@/composables/use-theme'
 
 export default defineComponent({
   head: {
     title: "Sample"
   },
   setup() {
-    /*
-      data() {
-        return {
-          text: ""
-        }
-      }
-    */
-    const info = reactive({
-      text: ""
-    })
-    const message = ref('Hello, World!')
+    const getDarkTheme = inject<() => boolean>('getDarkTheme')
 
-    /*
-      created() {
-        this.text = "まだ押されていません"
-      }
-    */
-   
-    info.text = "まだ押されていません"
-
-    /*
-      methods: {
-        onClicked() {
-          this.text = "押されたよ！"
-        }
-      }
-    */
-    const onClicked = () => {
-      info.text = "押されたよ！"
-      message.value = 'Hello, Nuxt!'
-    }
-
-    return { info, message, onClicked }
+    return { getDarkTheme }
   }
 })
 </script>
+<style scopded>
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+.blog-header-title {
+  width: min-content;
+  margin: auto;
+  font-size: 32px; 
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+</style>

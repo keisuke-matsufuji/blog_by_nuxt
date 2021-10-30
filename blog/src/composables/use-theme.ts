@@ -13,7 +13,6 @@ export default function useTheme(getDarkTheme: () => boolean) {
     return getDarkTheme() ? 'text--lighten-1' : 'text--darken-1'
   })
   
-
   return {
     baseColor,
     textColor,

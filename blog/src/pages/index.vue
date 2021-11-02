@@ -67,7 +67,7 @@ import useTheme from '@/composables/use-theme'
 
 export default defineComponent({
   head: {
-    title: "Sample"
+    title: "Matsu Tech"
   },
   setup() {
     const getDarkTheme = inject<() => boolean>('getDarkTheme')

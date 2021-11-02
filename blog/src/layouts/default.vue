@@ -164,7 +164,7 @@ interface State {
 
 export default defineComponent({
   head: {
-    title: "Sample"
+    title: "Matsu Tech"
   },
   setup() {
     /**

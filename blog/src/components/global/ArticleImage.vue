@@ -40,8 +40,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.sample {
-  color: #00f;
-}
-</style>        
+      

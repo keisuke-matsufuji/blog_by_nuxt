@@ -20,18 +20,11 @@ export default defineComponent({
     },
   },
   setup(props) {
-
-    // console.log('props', props)
     const prop = toRefs(props)
-    // console.log('prop', prop)
 
     const img_path = computed(() => {
       return String(prop.path.value)
     })
-    // console.log('img_path', img_path)
-
-    // const img_path = props.path
-    // console.log('img_path', img_path)
 
     return {
       img_path

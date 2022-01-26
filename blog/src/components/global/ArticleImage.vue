@@ -1,12 +1,12 @@
 <template>
-  <!-- <v-img
-   class=""
-   :src="require(`@/assets/images/blog/202107272.png`)"
-  /> -->
-  <v-img
-   class=""
-   :src="require(`@/assets/images/blog/${img_path}.png`)"
-  />
+  <div
+     class="my-10"
+  >
+    <v-img
+      class="mt-5"
+      :src="require(`@/assets/images/blog/${img_path}.png`)"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -16,7 +16,7 @@ export default defineComponent({
   props: {
     path: {
       type: Number,
-      default: '',
+      default: 0,
     },
   },
   setup(props) {

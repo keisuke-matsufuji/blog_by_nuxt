@@ -14,27 +14,6 @@
               router
               exact
             >
-              <!-- <v-card-title
-                style="height: 4em;"
-              >
-                <v-avatar
-                  height="100"
-                  width="100"
-                  color="secondary"
-                  style="position: relative; top: .5em; left: 10em;"
-                >
-                  <v-img
-                    :src="require(`@/assets/images/icons/${post.top_image}`)"
-                    contain
-                    style="align-items: end;"
-                  ></v-img>
-                </v-avatar>
-              </v-card-title>
-              <v-card-text
-                style="background-color: #fff; height: 23em; width: 20em;"
-              >
-                てすと１
-              </v-card-text> -->
               <v-img
                 height="25em"
                 :src="require(`@/static/covers/${post.cover_image}.jpg`)"
@@ -72,23 +51,12 @@
 
 <script lang="ts">
 import { 
-  computed,
   defineComponent,
   inject,
-  onMounted,
-  provide,
-  reactive,
-  ref,
-  Ref,
-  toRefs,
   useAsync,
   useContext,
-  useStatic,
-  watch,
 } from '@nuxtjs/composition-api'
-import useLayout from '@/composables/use-layout'
 import useTheme from '@/composables/use-theme'
-import TagItem from '@/components/TagItem.vue'
 import Post from '@/types/post'
 
 export default defineComponent({
@@ -103,7 +71,7 @@ export default defineComponent({
      */
     // const hover
 
-    const { app, params } = useContext()
+    const { app } = useContext()
 
     // 関数でinjectした場合injectした側は常にgetterとして扱うことができ、
     // それをcomputedだろうとwatchだろうと好きな場所で利用することができる。
@@ -113,36 +81,14 @@ export default defineComponent({
     const { textColor } = useTheme(getDarkTheme)
 
     const postItem = useAsync<Post[]>(async () => {
-      // let ap = await app.$content('posts')
-      // .sortBy('created_at', 'desc')
-      // .fetch()
-      // console.log('ap', ap)
-      // let ap2 = ap.filter((value) => {
-      //   // return value.tags.indexOf(params.value.slug)
-      //   return value.tags.indexOf('Laravel') != -1
-      // })
-      // console.log('ap2', ap2)
       return await app.$content('posts')
       .sortBy('created_at', 'desc')
       .fetch()
     })
 
-    /**
-     * computed
-     */
-    // const tagList = computed(() => {
-    //   return post.value.tags.split(',')
-    // })
-
-    const toggleMenu = () => {
-      console.log('postItem', postItem)
-    }
-
     return {
       isMobileSize,
-      // mobileSize,
       postItem,
-      toggleMenu,
       textColor,
     }
   },
@@ -157,10 +103,12 @@ export default defineComponent({
   transition: opacity .10s ease-in-out;
 }
 div.theme--light .blog-cover:not(.on-hover) {
-  opacity: 0.7;
+  /* opacity: 0.7; */
+  opacity: 0.8;
 }
 div.theme--dark .blog-cover:not(.on-hover) {
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  opacity: 0.7;
 }
 
 .cover-text-area {

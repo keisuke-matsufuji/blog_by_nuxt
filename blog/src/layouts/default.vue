@@ -31,7 +31,7 @@
           <v-list-item-title
             class="text-h6 font-weight-bold"
           >
-            Matsu
+            Matsu-Suke
           </v-list-item-title>
         </v-list-item>
 
@@ -109,8 +109,6 @@
     <v-main>
       <v-container>
         <Nuxt />
-        <!-- <Nuxt :textColor="textColor"/> -->
-        <!-- <Nuxt :darkTheme="darkTheme"/> -->
       </v-container>
     </v-main>
     <v-footer
@@ -194,14 +192,6 @@ export default defineComponent({
       ],
       temporary: true,
     })
-
-    // const {
-    //   baseColor,
-    //   darkTheme,
-    //   textColor,
-    //   themeIcon, 
-    //   title,
-    // } = useLayout(state.items)
 
     const {
       baseColor,

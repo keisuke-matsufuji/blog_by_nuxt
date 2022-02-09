@@ -5,23 +5,21 @@ import {
   useContext,
   InjectionKey 
 } from '@nuxtjs/composition-api'
-import  MenuItem  from '@/types/menu-item'
 
 export default function useLayout() {
-  const { app, route } = useContext()
+  const { app } = useContext()
   const darkTheme = ref(false)
 
   /**
    * computed
    */
   const baseColor = computed(() => {
-    let size = app.vuetify.framework.breakpoint.name
     return darkTheme.value ? '#121212' : '#FFFFFF'
   })
 
   const mobileSize = computed(() => {
-    let name = app.vuetify.framework.breakpoint.name
-    return name == 'md' || name == 'lg' || name == 'xl' ? false : true
+    const name = app.vuetify.framework.breakpoint.name
+    return name === 'md' || name === 'lg' || name === 'xl' ? false : true
   })
 
   const themeIcon = computed(() => {
@@ -29,7 +27,6 @@ export default function useLayout() {
   })
 
   const textColor = computed(() => {
-    // return darkTheme.value ? 'black' : 'white'
     return darkTheme.value ? 'white' : 'black'
   })
 
@@ -60,7 +57,6 @@ export default function useLayout() {
     darkTheme,
     (newValue) => {
       darkTheme.value = newValue
-      // app.vuetify.framework.theme.isDark = darkTheme.value ? true : false
       app.vuetify.framework.theme.dark = darkTheme.value ? true : false
     },
   )

@@ -1,3 +1,9 @@
+interface Toc {
+  depth: number;
+  id: number;
+  text: string;
+}
+
 export default interface Post {
   title: string;
   description: string;
@@ -11,10 +17,4 @@ export default interface Post {
   extension: string;
   path: string;
   slug: string;
-}
-
-interface Toc {
-  depth: number;
-  id: number;
-  text: string;
 }

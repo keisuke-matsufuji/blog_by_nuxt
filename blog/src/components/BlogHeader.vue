@@ -1,9 +1,8 @@
 <template>
   <v-row>
     <v-col>
-    <v-app-bar height="100" class="ma-2" :color="baseColor" elevation="0">
-    <!-- <v-app-bar height="100" class="ma-2" elevation="0"> -->
-      <v-row v-if="!isMobileSize()" class="ma-5">
+    <v-app-bar height="100" class="ma-1" :color="baseColor" elevation="0">
+      <v-row class="ma-5">
         <v-col cols="2" />
         <v-col cols="8">
           <div class="d-block blog-header" width="50px">
@@ -20,9 +19,10 @@
             <div 
               class="blog-header-subtitle"
             >
-              ソフトウェアエンジニア matsu のブログサイト
+              ソフトウェアエンジニア matsu-suke のブログサイト
             </div>
             <div
+              v-if="!isMobileSize()"
               class="mx-10 pt-5"
               style="text-align:center;"
             >
@@ -53,7 +53,6 @@
       <div
         v-if="isMobileSize()"
       >
-        
         <v-icon
           @click.stop="toggleMenu()"
         >

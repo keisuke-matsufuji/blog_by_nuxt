@@ -15,22 +15,22 @@
         <div
           class="font-weight-bold blog-header-title ma-3"
         >
-          Matsu
+          Matsusuke
         </div>
       </v-layout>
       <v-layout justify-center>
         <div class="ma-1">
-          Webエンジニア三年生
+          福岡市在住のSoftware-Engineer
         </div>
       </v-layout>
       <v-layout justify-center>
         <div class="ma-1">
-          Backend / Frontendどちらも好きです
+          
         </div>
       </v-layout>
       <v-layout justify-center>
         <div class="ma-3">
-          PHP / TypeScript / Vue.js / Python
+          PHP / TypeScript / Vue.js / Python / Go
         </div>
       </v-layout>
       <v-layout justify-center>

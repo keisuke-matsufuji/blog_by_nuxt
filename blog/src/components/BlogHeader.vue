@@ -13,13 +13,13 @@
                 to="/posts"
                 :class="`router_link grey--text ${textSubClass}`"
               >
-                matsu tech
+                Matsusuke tech
               </router-link>
             </v-toolbar-title>
             <div 
               class="blog-header-subtitle"
             >
-              ソフトウェアエンジニア matsu-suke のブログサイト
+              Software Engineer Matsusuke のブログサイト
             </div>
             <div
               v-if="!isMobileSize()"
@@ -140,7 +140,7 @@ export default defineComponent({
 })
 </script>
 <style scopded>
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+/* @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300'); */
 .blog-header {
   text-align: center;
 }

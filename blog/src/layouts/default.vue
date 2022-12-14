@@ -24,14 +24,10 @@
               alt="Matsu"
             ></v-img>
           </v-list-item-avatar>
-          <!-- <v-list-item-title
-            v-if="!miniVariant"
-            class="text-h6 font-weight-bold"
-          > -->
           <v-list-item-title
             class="text-h6 font-weight-bold"
           >
-            Matsu-Suke
+            Matsusuke
           </v-list-item-title>
         </v-list-item>
 
@@ -40,12 +36,12 @@
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              Webエンジニア三年生
+              福岡市在住のSoftware-Engineer
             </v-list-item-subtitle>
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              PHP / TypeScript / Vue.js / Python
+              PHP / TypeScript / Vue.js / Python / Go
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>

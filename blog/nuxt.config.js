@@ -12,16 +12,13 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -42,7 +39,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     // https://composition-api.nuxtjs.org/
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,6 +49,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
+    '@nuxtjs/feed',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -60,8 +58,8 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      lang: 'en',
+    },
   },
 
   // Nuxt Content configuration: https://content.nuxtjs.org
@@ -69,12 +67,43 @@ export default {
     markdown: {
       prism: {
         // theme: 'prism-themes/themes/prism-material-oceanic.css'
-        theme: 'prism-themes/themes/prism-vsc-dark-plus.css'
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
         // theme: 'prism-themes/themes/prism-vs.css'
         // theme: 'prism-themes/themes/prism-base16-ateliersulphurpool.light.css'
-      }
-    }
+      },
+    },
   },
+
+  feed: [
+    {
+      path: '/feed.xml', // フィードのパス
+      async create(feed) {
+        const baseUrlArticles = 'https://www.mtfujiksukblog.com/posts'
+        const { $content } = require('@nuxt/content')
+        // フィードの内容の設定
+        // フィードの全体の設定
+        feed.options = {
+          title: 'Matsusuke Tech',
+          description: 'I write about technology',
+          link: baseUrlArticles,
+        }
+        // Nuxt Contentで書いた記事一覧をfetchする
+        const posts = await $content('posts').fetch()
+
+        // 各記事をフィードに追加
+        posts.forEach((article) => {
+          const url = `${baseUrlArticles}/${article.slug}`
+          feed.addItem({
+            title: article.title,
+            id: url,
+            link: url,
+          })
+        })
+      },
+      cacheTime: 1000 * 60 * 15, // フィードをキャッシュする期間
+      type: 'rss2', // フィードの種類を'rss2','atom1','json1' から選択
+    },
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -111,19 +140,18 @@ export default {
           error: colors.red.accent2,
           success: colors.green,
           // tertiary: colors.black,
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+  build: {},
 
   css: [
     // プロジェクト内の CSS ファイル
     '@/assets/css/main.css',
   ],
 
-  srcDir: 'src/', 
+  srcDir: 'src/',
 }

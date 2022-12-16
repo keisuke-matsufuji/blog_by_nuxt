@@ -158,7 +158,7 @@ interface State {
 
 export default defineComponent({
   head: {
-    title: "Matsu Tech"
+    title: "Matsusuke Tech"
   },
   setup() {
     /**

@@ -1,9 +1,8 @@
 <template>
   <v-row>
     <v-col>
-    <v-app-bar height="100" class="ma-2" :color="baseColor" elevation="0">
-    <!-- <v-app-bar height="100" class="ma-2" elevation="0"> -->
-      <v-row v-if="!isMobileSize()" class="ma-5">
+    <v-app-bar height="100" class="ma-1" :color="baseColor" elevation="0">
+      <v-row class="ma-5">
         <v-col cols="2" />
         <v-col cols="8">
           <div class="d-block blog-header" width="50px">
@@ -14,15 +13,16 @@
                 to="/posts"
                 :class="`router_link grey--text ${textSubClass}`"
               >
-                matsu tech
+                Matsusuke tech
               </router-link>
             </v-toolbar-title>
             <div 
               class="blog-header-subtitle"
             >
-              ソフトウェアエンジニア matsu のブログサイト
+              Software Engineer Matsusuke のブログサイト
             </div>
             <div
+              v-if="!isMobileSize()"
               class="mx-10 pt-5"
               style="text-align:center;"
             >
@@ -53,7 +53,6 @@
       <div
         v-if="isMobileSize()"
       >
-        
         <v-icon
           @click.stop="toggleMenu()"
         >
@@ -141,7 +140,7 @@ export default defineComponent({
 })
 </script>
 <style scopded>
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300');
+/* @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300'); */
 .blog-header {
   text-align: center;
 }

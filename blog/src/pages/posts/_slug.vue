@@ -13,75 +13,45 @@
                 <v-col
                   cols="12"
                 >
-                  <v-row class="">
-                    <v-col col="12">
-                      <h1 class="post_title">{{ post.title }}</h1>
-                    </v-col>
-                  </v-row>
-                  <!-- <v-row class="ma-n5"> -->
-                  <!-- <v-row class="ma-n5"> -->
-                    <v-row class="">
-                    <v-col cols="2" md="1"/>
-                    <v-col cols="3" md="1">
+
+                  <v-row class="ma-1">
+                    <v-col v-if="!isMobileSize()" cols="2">
                       <v-img
                         v-if="post.top_image != ''"
-                        class=""
+                        class="d-flex align-center"
                         :src="require(`@/assets/images/icons/${post.top_image}`)"
-                        height="50px"
-                        width="50px"
+                        height="75px"
+                        width="75px"
                         contain
                       />
                     </v-col>
-                    <v-col 
-                      v-if="!isMobileSize()"
-                      col="6" 
-                      class="my-2"
-                    >
-                      <TagItem
-                        :tagList="tagList"
-                      />
+                    <v-col cols="12" md="9">
+                      <h1 class="post_title">{{ post.title }}</h1>
                     </v-col>
-                    <v-col cols="5" md="3" v-if="post.created_at != '' && post.updated_at">
-                      <span class="d-block">
-                        <v-icon>mdi-calendar-edit</v-icon>
-                        {{ post.created_at.split('T')[0] }}
-                      </span>
-                      <span class="d-block">
-                        <v-icon>mdi-update</v-icon>
-                        {{ post.updated_at.split('T')[0] }}
-                      </span>
-                    </v-col>
-                    <v-col cols="1" md="1"/>
+                    <v-col v-if="!isMobileSize()" cols="1" />
                   </v-row>
-                  <v-row v-if="isMobileSize()"><!-- Mobileのみ改行して表示 -->
-                    <v-col>
-                      <TagItem
-                        :tagList="tagList"
-                      />
-                    </v-col>
-                  </v-row>
+                  <div 
+                    v-if="post.created_at != '' && post.updated_at" 
+                    class="d-flex justify-end ma-1"
+                  >
+                    <span class="mx-2">
+                      <v-icon>mdi-calendar-edit</v-icon>
+                      {{ post.created_at.split('T')[0] }}
+                    </span>
+                    <span class="mx-2">
+                      <v-icon>mdi-update</v-icon>
+                      {{ post.updated_at.split('T')[0] }}
+                    </span>
+                  </div>
+                  <div class="mt-2 mx-2 d-flex justify-start">
+                    <TagItem :tag-list="tagList" />
+                  </div>
+
                 </v-col>
               </v-row>
             </v-container>
-            <!-- <v-container class="mx-10"> -->
             <v-container>
               <v-row class="mx-1">
-                <!-- <v-col cols="1" md="3" />
-                <v-col cols="10" md="6">
-                  <div>
-                    <ul>
-                      <li v-for="item in post.toc" :key="item.id">
-                        <NuxtLink 
-                          v-scroll-to="`#${item.id}`" 
-                          to
-                        >
-                          {{ item.text }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </div>
-                </v-col>
-                <v-col cols="1" md="3" /> -->
                 <v-col>
                   <v-card
                     elevation="2"
@@ -115,7 +85,6 @@
                             </NuxtLink>
                           </li>
                         </ul>
-                        <!-- </v-row> -->
                       </v-expansion-panel-content>
                     </v-expansion-panel>
                   </v-expansion-panels>
@@ -216,16 +185,13 @@ export default defineComponent({
      * computed
      */
     const tagList = computed(() => {
-      return post.tags == '' ? [] : post.tags.split(',')
+      return post.tags === '' ? [] : post.tags.split(',')
     })
 
     return {
-      // baseColor,
       isMobileSize,
       post,
       tagList,
-      // textColor,
-      // textSubClass,
     }
   },
 })

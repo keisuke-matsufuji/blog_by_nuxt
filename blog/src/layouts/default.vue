@@ -24,14 +24,10 @@
               alt="Matsu"
             ></v-img>
           </v-list-item-avatar>
-          <!-- <v-list-item-title
-            v-if="!miniVariant"
-            class="text-h6 font-weight-bold"
-          > -->
           <v-list-item-title
             class="text-h6 font-weight-bold"
           >
-            Matsu
+            Matsusuke
           </v-list-item-title>
         </v-list-item>
 
@@ -40,12 +36,12 @@
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              Webエンジニア三年生
+              福岡市在住のSoftware-Engineer
             </v-list-item-subtitle>
             <v-list-item-subtitle
               class="font-weight-bold"
             >
-              PHP / TypeScript / Vue.js / Python
+              PHP / TypeScript / Vue.js / Python / Go
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -109,8 +105,6 @@
     <v-main>
       <v-container>
         <Nuxt />
-        <!-- <Nuxt :textColor="textColor"/> -->
-        <!-- <Nuxt :darkTheme="darkTheme"/> -->
       </v-container>
     </v-main>
     <v-footer
@@ -164,7 +158,7 @@ interface State {
 
 export default defineComponent({
   head: {
-    title: "Matsu Tech"
+    title: "Matsusuke Tech"
   },
   setup() {
     /**
@@ -194,14 +188,6 @@ export default defineComponent({
       ],
       temporary: true,
     })
-
-    // const {
-    //   baseColor,
-    //   darkTheme,
-    //   textColor,
-    //   themeIcon, 
-    //   title,
-    // } = useLayout(state.items)
 
     const {
       baseColor,

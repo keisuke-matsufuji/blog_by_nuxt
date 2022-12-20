@@ -4,7 +4,7 @@
   >
     <v-img
       class="mt-5"
-      :src="require(`@/assets/images/blog/${img_path}.png`)"
+      :src="require(`@/assets/images/blog/${imgPath}.png`)"
     />
   </div>
 </template>
@@ -22,12 +22,12 @@ export default defineComponent({
   setup(props) {
     const prop = toRefs(props)
 
-    const img_path = computed(() => {
+    const imgPath = computed(() => {
       return String(prop.path.value)
     })
 
     return {
-      img_path
+      imgPath
     }
   },
 })
